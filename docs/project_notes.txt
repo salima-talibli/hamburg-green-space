@@ -1,0 +1,60 @@
+Project: Hamburg Green Space Accessibility
+
+Main question:
+Which areas of Hamburg lie outside 300 m and 500 m
+straight-line buffers around mapped public parks?
+
+Tools:
+QGIS and Python
+
+Planned outputs:
+1. Park proximity map
+2. District-level comparison
+3. Python notebook explaining the analysis
+
+Limitations:
+Straight-line distance does not represent walking distance.
+Park boundaries do not necessarily indicate park entrances.
+
+DAY 1 — 2026-10-01
+
+Data sources:
+1. ALKIS - Verwaltungsgrenzen Hamburg
+Provider: Freie und Hansestadt Hamburg, LGV
+https://suche.transparenz.hamburg.de/dataset/alkis-verwaltungsgrenzen-hamburg31
+
+2. Digitaler Gruenplan / Kataster der oeffentlichen Gruenanlagen
+Attribution: Freie und Hansestadt Hamburg,
+Behoerde fuer Umwelt und Energie
+https://suche.transparenz.hamburg.de/dataset/digitaler-gruenplan-kataster-der-oeffentlichen-gruenanlagen18
+
+Download date: 2026-10-01
+License for both datasets:
+Datenlizenz Deutschland - Namensnennung - Version 2.0
+https://www.govdata.de/dl-de/by-2-0
+
+Preparation:
+- Loaded 7 district features.
+- Loaded 3579 public green-space features.
+- Corrected the assigned source CRS to EPSG:25832.
+  QGIS initially interpreted the projected coordinates as EPSG:4326.
+- Selected park features using:
+  "gruen_art" = 'Parkanlagen'
+- Selection count: 951 features.
+- Exported districts and selected parks to GeoPackage.
+
+Working files:
+data_processed/hamburg_districts.gpkg — layer: districts
+data_processed/hamburg_parks.gpkg — layer: parks
+
+Limitations:
+951 features do not necessarily represent 951 distinct parks.
+Other green-space categories are excluded from this analysis.
+Geometry checks and distance analysis are still pending.
+
+Geometry validation:
+Initial GEOS check: 948 valid, 3 invalid features.
+Errors: ring self-intersections.
+Applied Fix geometries using the Structure method.
+Saved as data_processed/hamburg_parks_fixed.gpkg.
+Repeated GEOS check: 951 valid, 0 invalid, 0 errors.

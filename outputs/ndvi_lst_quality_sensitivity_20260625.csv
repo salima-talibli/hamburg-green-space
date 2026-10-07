@@ -1,0 +1,4 @@
+analysis,cells,pearson_r,spearman_rho
+Main: all retained cells,6316,-0.8937583453341851,-0.9045231109868203
+Main: common cells only,5147,-0.8987918367862782,-0.897701128321766
+Strict: common cells,5147,-0.898473767148451,-0.8971673265106358

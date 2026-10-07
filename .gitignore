@@ -1,0 +1,21 @@
+# Python virtual environment
+.venv/
+venv/
+
+# Python and Jupyter temporary files
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# Raw source data, including Landsat downloads
+data_raw/
+
+# Temporary GIS files
+*.gpkg-wal
+*.gpkg-shm
+*.qgz~
+*.qgs~
+
+# Operating system files
+Thumbs.db
+.DS_Store
